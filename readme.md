@@ -1,4 +1,4 @@
-#Model-Presenter-View Demo
+# Model-Presenter-View Demo
 This is a demonstration of how to send data from the model through presenters and to the view of a screen.
 In this example the colors (RGB) of the background is controlled. Using an array in the model the colors are stored in a single place and controlled through sliders on a settings screen.
 
