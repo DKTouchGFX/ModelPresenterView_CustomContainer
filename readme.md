@@ -1,12 +1,8 @@
-# STM32U5G9J-DK2 TBS
+#Model-Presenter-View Demo
+This is a demonstration of how to send data from the model through presenters and to the view of a screen.
+In this example the colors (RGB) of the background is controlled. Using an array in the model the colors are stored in a single place and controlled through sliders on a settings screen.
 
-The default IDE is set to STM32CubeIDE, to change IDE open the STM32U5G9J-DK2.ioc with STM32CubeMX and select from the supported IDEs (EWARM, MDK-ARM and STM32CubeIDE). Supports flashing of the STM32U5G9J-DK2 board directly from TouchGFX Designer using GCC and STM32CubeProgrammer. Flashing the board requires STM32CubeProgrammer which can be downloaded from the ST webpage.
+## Custom containers
+The demo also have a custom button that can be used for a generic 'back' action The background is made as a custom container which color can be controlled by the settings sliders.
 
-This TBS is configured for 800 x 480 pixels 16 bpp screen resolution.
-
-Performance testing can be done using the GPIO pins designated with the following signals in Spare GPIO connector on the underside of the board:
-
-- VSYNC_FREQ  - PC0  (CN1 pin 14)
-- RENDER_TIME - PC10 (CN1 pin 16)
-- FRAME_RATE  - PC11 (CN1 pin 18)
-- MCU_ACTIVE  - PC12 (CN1 pin 20)
+The demo is made for STM32U5G9J-DK2 TBS. However, the demonstration will focus on the simulator
