@@ -1,0 +1,427 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "mainScreen",
+        "Components": [
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "background",
+            "Width": 800,
+            "Height": 480,
+            "CustomContainerDefinitionName": "backgroundContainer"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "backButton",
+            "Width": 141,
+            "Height": 61,
+            "CustomContainerDefinitionName": "buttonContainer"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "settingsButton",
+            "X": 158,
+            "Width": 141,
+            "Height": 61,
+            "CustomContainerDefinitionName": "buttonContainer"
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "settingsbuttonFlex",
+            "X": 158,
+            "Width": 141,
+            "Height": 61,
+            "Alpha": 0,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 141,
+                "Height": 61,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Green": 102,
+                  "Blue": 153
+                },
+                "ColorPressed": {
+                  "Green": 153,
+                  "Blue": 204
+                },
+                "ColorBorderReleased": {
+                  "Green": 51,
+                  "Blue": 102
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 102,
+                  "Blue": 153
+                }
+              }
+            ]
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "settingsbuttonFlex"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "settingsScreen"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "settingsScreen",
+        "CanvasBufferSize": 12000,
+        "Components": [
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "background",
+            "Width": 800,
+            "Height": 480,
+            "CustomContainerDefinitionName": "backgroundContainer"
+          },
+          {
+            "Type": "Slider",
+            "Name": "sliderGreen",
+            "X": 149,
+            "Y": 116,
+            "Width": 25,
+            "Height": 315,
+            "BackgroundUnselected": "slider_invisible.png",
+            "BackgroundSelected": "slider_invisible.png",
+            "Indicator": "sliderGreen.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 300,
+            "ValueMax": 255
+          },
+          {
+            "Type": "Line",
+            "Name": "line1_1",
+            "X": 156,
+            "Y": 116,
+            "Width": 11,
+            "Height": 315,
+            "Color": {
+              "Green": 255
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 5.0,
+            "EndY": 310.0,
+            "LineWidth": 5.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "Slider",
+            "Name": "sliderBlue",
+            "X": 214,
+            "Y": 116,
+            "Width": 25,
+            "Height": 315,
+            "BackgroundUnselected": "slider_invisible.png",
+            "BackgroundSelected": "slider_invisible.png",
+            "Indicator": "sliderBlue.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 300,
+            "ValueMax": 255
+          },
+          {
+            "Type": "Line",
+            "Name": "line1_2",
+            "X": 221,
+            "Y": 116,
+            "Width": 11,
+            "Height": 315,
+            "Color": {
+              "Blue": 255
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 5.0,
+            "EndY": 310.0,
+            "LineWidth": 5.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "Slider",
+            "Name": "sliderRed",
+            "X": 97,
+            "Y": 116,
+            "Width": 25,
+            "Height": 315,
+            "BackgroundUnselected": "slider_invisible.png",
+            "BackgroundSelected": "slider_invisible.png",
+            "Indicator": "sliderRed.png",
+            "BackgroundX": 9,
+            "BackgroundY": 12,
+            "IndicatorMax": 300,
+            "ValueMax": 255
+          },
+          {
+            "Type": "Line",
+            "Name": "line1",
+            "X": 104,
+            "Y": 116,
+            "Width": 11,
+            "Height": 315,
+            "Color": {
+              "Red": 255
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 5.0,
+            "EndY": 310.0,
+            "LineWidth": 5.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "backButton",
+            "Width": 141,
+            "Height": 61,
+            "CustomContainerDefinitionName": "buttonContainer"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "sliderRedInteraction",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "sliderRed"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "sliderRedHandler"
+            }
+          },
+          {
+            "InteractionName": "silderGreenInteraction",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "sliderGreen"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "sliderGreenHandler"
+            }
+          },
+          {
+            "InteractionName": "sliderBlueInteraction",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "sliderBlue"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "sliderBlueHandler"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [
+      {
+        "Name": "buttonContainer",
+        "Width": 141,
+        "Height": 61,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "backgroundColor",
+            "Width": 141,
+            "Height": 61,
+            "Color": {
+              "Green": 255
+            }
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "flexButton1",
+            "Width": 141,
+            "Height": 61,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "TextButtonStyle",
+                "Y": 16,
+                "TextId": "__SingleUse_2QQL",
+                "TextRotation": "0",
+                "Wildcard1": {
+                  "TextId": "__SingleUse_H6L4",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                },
+                "ColorReleased": {
+                  "Green": 255
+                },
+                "ColorPressed": {
+                  "Red": 255,
+                  "Green": 170
+                }
+              },
+              {
+                "Type": "ImageButtonStyle",
+                "ImageReleased": "button2.png",
+                "ImagePressed": "button2.png"
+              }
+            ]
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "backInteraction",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "flexButton1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "mainScreen"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "backgroundContainer",
+        "Width": 800,
+        "Height": 480,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "backgroundColor",
+            "Width": 800,
+            "Height": 480,
+            "Color": {
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "Image",
+            "Name": "image1",
+            "X": 627,
+            "Width": 114,
+            "Height": 59,
+            "RelativeFilename": "top.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image2",
+            "X": 775,
+            "Width": 25,
+            "Height": 272,
+            "RelativeFilename": "Right.png"
+          },
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 627,
+            "Height": 480
+          },
+          {
+            "Type": "Box",
+            "Name": "box2",
+            "X": 627,
+            "Y": 59,
+            "Width": 148,
+            "Height": 421
+          },
+          {
+            "Type": "Box",
+            "Name": "box3",
+            "X": 775,
+            "Y": 272,
+            "Width": 25,
+            "Height": 208
+          },
+          {
+            "Type": "Box",
+            "Name": "box4",
+            "X": 741,
+            "Width": 34,
+            "Height": 59
+          }
+        ],
+        "Interactions": []
+      }
+    ],
+    "Name": "Model_Custom_containers",
+    "Resolution": {
+      "Width": 800,
+      "Height": 480
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "mainScreen",
+    "SelectedStartupLanguage": "GB",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "24": "LCDGPU2D",
+      "16": "LCDGPU2D"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 800,
+        "Height": 480
+      }
+    ],
+    "PhysicalButtons": [
+      {
+        "Key": 1,
+        "Name": "USER_BUTTON"
+      }
+    ],
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommand": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommand": "make -f ../gcc/Makefile flash",
+    "FlashTargetIntCommandOverride": "make -f ../gcc/Makefile intflash",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32U5",
+    "SubFamily": "STM32U5F9/5G9",
+    "Toolchain": "STM32CubeIDE",
+    "Platform": "m33",
+    "ProjectFile": "../STM32U5G9J-DK2.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": [
+      "GPU2D"
+    ],
+    "AdditionalFeatures": [
+      "GPU2DVector",
+      "VectorFonts",
+      "Video"
+    ]
+  },
+  "Version": "4.24.0",
+  "CreatedBy": "4.24.0"
+}
